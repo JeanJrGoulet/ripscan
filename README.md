@@ -21,9 +21,9 @@ the realm of <br>cybersecurity tools, used for Pentesting, Bug Bounty and/or CTF
 
 ![Example 1](img/scanH.png) <br><br>
 ![Example 2](img/scanS.png) <br><br>
-Here I basically started 2 netcat listener on port 4433 and 4444 and a HTTP server from python's SimpleHTTPServer module.<br>
+Here I basically started 2 netcat listener on port 4433 and 4444 and<br>a HTTP server from python's SimpleHTTPServer module.<br>
 Our netcat listenners are giving us no addtional info on the open ports.<br>
-However, the HTTP server responded with a broken HTML with error code 400, which is enough to know that port 4201 is probably running a web server.<br>
+However, the HTTP server responded with a broken HTML with error code 400, which is enough to know that port 4201 is probably running a web server.<br><br>
 ![Example 3](img/scanE.png) <br>
 
 ## Functionalities
