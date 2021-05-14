@@ -114,7 +114,7 @@ def getSvcBanner(host, port):
     except:
         pass
     banner_sock.close()
-    return svc_banner.decode().strip("\r\n").replace('\r\n', ' ')
+    return svc_banner.decode().strip("\r\n").replace('\r\n', ' ').replace('\n', ' ')
 
 def outputResults(scan_time, q_open_ports):
     # TODO: Fix Time, second(s) and minutes can still be displayed in decimal ex: 7.75 seconds or 7.75 minutes is possible
@@ -124,7 +124,6 @@ def outputResults(scan_time, q_open_ports):
 
     if rounded_time > 60 :
         scan_time = scan_time/60
-        print(scan_time)
         time_unit= 'minute(s)'
     
     # Unpack the Queue and build the ports/services list with its data.
@@ -195,7 +194,7 @@ def scanUDPPorts(port, n_ports_scanned, q_open_ports):
         message, address = scan_sock.recvfrom(1024)
 
         if message.decode() != '':
-            q_open_ports.put((port, 'open', known_svc, message.decode().strip('\r\n').replace('\r\n', ' '), 'udp'))
+            q_open_ports.put((port, 'open', known_svc, message.decode().strip('\r\n').replace('\r\n', ' ').replace('\n',' '), 'udp'))
 
     except socket.timeout:
         q_open_ports.put((port, 'open|filtered', known_svc, '', 'udp'))
